@@ -17,7 +17,7 @@
 
   <header class="top">
     <!-- Photo: replace photo.svg with a square photo.jpg (about 400x400) and change the src below. -->
-    <img class="photo" src="photo.svg" alt="" width="160" height="160">
+    <div class="photo-ring"><img class="photo" src="photo.svg" alt="" width="160" height="160"></div>
     <div>
       <h1>Esma Kokten Caliskan</h1>
       <p class="role">
@@ -45,10 +45,8 @@
   </header>
 
   <section aria-label="About">
-    <p>I work on operating systems and virtualization. The question behind my research is how one machine can run software from owners who do not trust each other, keep them isolated, and still let them call each other cheaply and predictably. I care most about the worst case, because real-time and latency-sensitive systems are judged by their worst case, not their average.</p>
-    <p>Most of my current work is on the boundary around a virtual machine: what a VM exit really costs, which parts of that cost isolation needs and which are accidental, and how a guest can reach small isolated services outside the VM without going through the full hypervisor path. I build on the <a href="https://composite.seas.gwu.edu/">Composite</a> microkernel and measure on Intel VT-x hardware.</p>
-    <p>Earlier I worked on processor reservations in Composite, which became the SPR paper at RTAS 2025 with Gabriel Parmer and Björn Brandenburg. Before the PhD I spent four years at Siemens in Istanbul, most of it writing embedded firmware in C and C++ for industrial automation devices. The rest of my background is in my <a href="cv.pdf">CV</a>.</p>
-    <p>I am looking for a research internship in systems for summer 2027.</p>
+    <p>I work on operating systems and virtualization: how one machine can run software from owners who do not trust each other, keep them isolated, and still let them call each other cheaply and predictably, with the worst case in mind rather than the average. Right now that means the boundary around a virtual machine: what a VM exit really costs, which parts of that cost isolation needs, and how a guest can reach small isolated services outside the VM without the full hypervisor path. I build on the <a href="https://composite.seas.gwu.edu/">Composite</a> microkernel and measure on Intel VT-x hardware.</p>
+    <p class="callout">I am looking for a research internship in systems for summer 2027.</p>
   </section>
 
   <section aria-labelledby="pubs">
