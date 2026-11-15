@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
-  <rect width="400" height="400" fill="#d9dde3"/>
-  <circle cx="200" cy="150" r="68" fill="#aab2bf"/>
-  <path d="M60 400c0-86 63-150 140-150s140 64 140 150z" fill="#aab2bf"/>
-  <text x="200" y="372" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" fill="#5b6472">photo.jpg goes here</text>
-</svg>
