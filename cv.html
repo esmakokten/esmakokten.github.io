@@ -6,126 +6,193 @@
   <title>CV · Esma Kokten Caliskan</title>
   <meta name="description" content="CV of Esma Kokten Caliskan, Ph.D. student in Computer Science at George Washington University.">
   <meta name="color-scheme" content="light dark">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&display=swap">
-  <link rel="stylesheet" href="style.css">
+  <!-- A web rendering of esma-kokten-cv-2026-11-research.tex (pdflatex, letter, 10pt, lmodern).
+       Fonts: Latin Modern Roman (GUST Font License), subset to Latin for the web. -->
+  <style>
+    @font-face { font-family: "LM Roman 10"; src: url(fonts/lmroman10-regular.woff) format("woff"); font-weight: 400; font-style: normal; font-display: swap; ascent-override: 80.6%; descent-override: 19.4%; line-gap-override: 0%; }
+    @font-face { font-family: "LM Roman 10"; src: url(fonts/lmroman10-bold.woff) format("woff"); font-weight: 700; font-style: normal; font-display: swap; ascent-override: 80.6%; descent-override: 19.4%; line-gap-override: 0%; }
+    @font-face { font-family: "LM Roman 10"; src: url(fonts/lmroman10-italic.woff) format("woff"); font-weight: 400; font-style: italic; font-display: swap; ascent-override: 80.6%; descent-override: 19.4%; line-gap-override: 0%; }
+    @font-face { font-family: "LM Roman 12"; src: url(fonts/lmroman12-bold.woff) format("woff"); font-weight: 700; font-style: normal; font-display: swap; ascent-override: 80.6%; descent-override: 19.4%; line-gap-override: 0%; }
+
+    :root { --desk: #e9e6df; --ui: #4f7a5a; }
+    @media (prefers-color-scheme: dark) { :root { --desk: #1d1b18; --ui: #8fbf96; } }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body { margin: 0; background: var(--desk); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+
+    .bar { max-width: 8.5in; margin: 0 auto; padding: 20px 16px 14px; }
+    .bar a { color: var(--ui); text-decoration: none; font-size: 15px; }
+    .bar a:hover { text-decoration: underline; }
+
+    /* One letter-size page: 8.5in x 11in, margins 0.6in left and right, 0.5in top and bottom. */
+    .sheet {
+      max-width: 8.5in; margin: 0 auto 24px; padding: 0.5in 0.6in;
+      background: #fff; color: #000; color-scheme: light;
+      font-family: "LM Roman 10", "Latin Modern Roman", "CMU Serif", Georgia, serif;
+      font-size: 10pt; line-height: 12pt;
+      font-kerning: normal; font-variant-ligatures: common-ligatures;
+      word-spacing: -0.07em;                                       /* TeX lets interword space shrink; browsers only stretch */
+      box-shadow: 0 1px 2px rgba(0,0,0,.14), 0 10px 30px rgba(0,0,0,.10);
+    }
+    @media (min-width: 8.7in) { .sheet { min-height: 11in; } }
+    .sheet a { color: inherit; text-decoration: none; }            /* hyperref hidelinks */
+    .sheet a:hover { text-decoration: underline; }
+    .sheet p { margin: 0; }
+    .j { text-align: justify; hyphens: auto; }
+    .b { font-weight: 700; }
+    .i { font-style: italic; }
+    .sep { margin: 0 0.28em; }                                     /* \;$\cdot$\; */
+
+    /* Header */
+    .hd { text-align: center; }
+    .name { font-family: "LM Roman 12", "LM Roman 10", serif; font-weight: 700; font-size: 17.28pt; line-height: 22pt; margin-top: -5pt; }
+    .contact { margin-top: 0; }
+    .linkblue { color: #0A66C2 !important; }
+    .weblink { color: #D96B1A !important; }
+    .sheet .summary { margin-top: 13.5pt; }
+
+    /* \section: \large\bfseries, uppercase, 0.5pt rule; 9pt before, 4pt after */
+    .sec {
+      font-family: "LM Roman 12", "LM Roman 10", serif; font-weight: 700; font-size: 12pt; line-height: 14pt;
+      text-transform: uppercase; margin: 0 0 8.2pt; padding: 9pt 0 3.8pt; border-bottom: 0.5pt solid #000;
+    }
+    .sheet > .sec:first-child { padding-top: 0; margin-top: -1.5pt; }
+
+    /* \entry, \role, \project: left column, right column pushed to the margin */
+    .row { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0 1em; }
+    .row > :last-child { margin-left: auto; text-align: right; }
+    .gap5 { height: 5pt; }
+    .gap2 { height: 2pt; }
+    .project + p { margin-top: 2pt; }
+
+    /* bullets: leftmargin 1.1em, itemsep 2pt, topsep 2pt, after 4pt */
+    .sheet ul { margin: 2pt 0 5pt; padding-left: 1.1em; list-style: none; }
+    .sheet li { position: relative; text-align: justify; hyphens: auto; }
+    .sheet li + li { margin-top: 2pt; }
+    .sheet li::before { content: "\2022"; position: absolute; right: 100%; margin-right: 0.5em; }   /* \textbullet, labelsep 0.5em */
+
+    /* tabularx {p{0.6in}X} and {p{0.9in}X} */
+    .tab { display: grid; margin: 0; }
+    .tab.pubs { grid-template-columns: 0.6in minmax(0, 1fr); row-gap: 0; }
+    .tab.skills { grid-template-columns: 0.9in minmax(0, 1fr); row-gap: 2pt; }
+    .tab dt { font-weight: 700; }
+    .tab dd { margin: 0; text-align: justify; hyphens: auto; }
+    .tab a { overflow-wrap: anywhere; }
+    sup { font-size: 7pt; line-height: 0; }
+
+    @media (max-width: 8.7in) {
+      .sheet { padding: 28px 20px; margin-bottom: 16px; }
+      .j, .sheet li, .tab dd { text-align: left; }
+    }
+
+    @media print {
+      @page { size: letter; margin: 0.5in 0.6in; }
+      body { background: #fff; }
+      .bar { display: none; }
+      .sheet { max-width: none; margin: 0; padding: 0; min-height: 0; box-shadow: none; }
+      .sheet + .sheet { break-before: page; }
+      .sheet a:hover { text-decoration: none; }
+    }
+  </style>
 </head>
 <body>
-<main>
 
-  <a class="home" href="index.html">← Home</a>
+<nav class="bar"><a href="index.html">← Home</a></nav>
 
-  <article class="cv">
+<!-- Page 1 -->
+<article class="sheet">
 
-    <header class="cv-head">
-      <h1 class="page-title">Esma Kokten Caliskan</h1>
-      <p class="cv-contact"><a href="mailto:esmakokten@gmail.com">esmakokten@gmail.com</a> · Washington, DC · <a href="https://www.linkedin.com/in/esmakokten">linkedin.com/in/esmakokten</a></p>
-      <p class="summary">I work on making isolation practical for software that must interact frequently and execute predictably. My research spans virtualization and real-time scheduling, with a focus on protecting critical computations, reducing isolation overhead, and maintaining predictable CPU access in the presence of untrusted software.</p>
-    </header>
+  <header class="hd">
+    <div class="name">ESMA KOKTEN CALISKAN</div>
+    <div class="contact"><a href="mailto:esmakokten@gmail.com">esmakokten@gmail.com</a> <span class="sep">·</span> Washington,&nbsp;DC <span class="sep">·</span> <a class="linkblue" href="https://www.linkedin.com/in/esmakokten">linkedin.com/in/esmakokten</a> <span class="sep">·</span> <a class="weblink" href="https://esmakokten.github.io">esmakokten.github.io</a></div>
+  </header>
 
-    <section aria-labelledby="edu">
-      <h2 id="edu">Education</h2>
-      <div class="cv-entry">
-        <div class="cv-row"><span class="cv-org">The George Washington University</span><span class="r">Washington, DC</span></div>
-        <div class="cv-row"><span class="cv-role">Ph.D. in Computer Science · Advisor: Prof. Gabriel Parmer</span><span class="r">Aug 2023 – Jun 2028 (expected)</span></div>
-      </div>
-      <div class="cv-entry">
-        <div class="cv-row"><span class="cv-org">Bahcesehir University</span><span class="r">Istanbul, Turkey</span></div>
-        <div class="cv-row"><span class="cv-role">B.Sc. Electrical &amp; Electronics Engineering · B.Sc. Computer Engineering (double major)</span><span class="r">2015 – 2020</span></div>
-        <ul>
-          <li>GPA 3.60/4.00 (EEE, High Honor, ranked 3rd) · 3.59/4.00 (CE, 2017–2020) · Erasmus: Óbuda University (2018).</li>
-        </ul>
-      </div>
-    </section>
+  <p class="summary j">I work on making isolation practical for software that must interact frequently and execute predictably. My research spans virtualization and real-time scheduling, with a focus on protecting critical computations, reducing isolation overhead, and maintaining predictable CPU access in the presence of untrusted software.</p>
 
-    <section aria-labelledby="projects">
-      <h2 id="projects">Research Projects</h2>
-      <div class="cv-entry">
-        <div class="cv-row"><span class="cv-project">Hypervisor Support for Efficient Isolation between Critical Computations and VMs</span><span class="r">2025 – present</span></div>
-        <p>Sensitive computations, such as operations involving TLS private keys, need protection from potentially compromised software that uses them. Separating these computations from a VM introduces communication overhead that can make frequent interactions expensive. This project develops hypervisor support in Composite for running critical computations as isolated, preemptible, schedulable services outside the VM, with low-overhead invocation.</p>
-        <ul>
-          <li>Implemented the mechanism in C and x86-64 assembly across the Composite microkernel, its Intel VT-x hypervisor, and the Linux guest kernel.</li>
-          <li>Evaluated TLS key isolation with nginx, keeping private keys in an external service that the VM can invoke without directly accessing the keys.</li>
-          <li>Measured a 942-cycle guest-to-service round trip on an Intel Xeon Platinum 8160, approximately 1.4× the measured cost of a bare VM exit and entry, and below KVM’s in-kernel handling of the same call (1,709 cycles tuned, 4,202 stock).</li>
-        </ul>
-      </div>
-      <div class="cv-entry">
-        <div class="cv-row"><span class="cv-project">Shielded Processor Reservations: Predictable CPU Allocation under Adversarial Workloads</span><span class="r">RTAS 2025</span></div>
-        <p>CPU reservations promise predictable access to processing time, but malicious tasks can undermine these guarantees by triggering excessive reservation bookkeeping, timer interrupts, and repeated preemption. SPR addresses both timely access to reserved CPU time and the ability to use that time for meaningful computation. Its design processes at most two reservations per scheduler invocation and supports non-preemptive execution regions to mitigate preemption storms. With Gabriel Parmer and Björn Brandenburg (MPI-SWS).</p>
-        <ul>
-          <li>Implemented SPR and baseline reservation policies in Composite and conducted the full experimental evaluation of scheduling overhead and temporal isolation under adversarial workloads.</li>
-          <li>Demonstrated that 2 ms non-preemptive regions restored matrix-multiplication throughput under a timer-flood attack to 99.6% of the no-interference baseline.</li>
-        </ul>
-      </div>
-    </section>
+  <h2 class="sec">Education</h2>
+  <div class="row"><span class="b">The George Washington University</span><span>Washington,&nbsp;DC</span></div>
+  <div class="row"><span class="i">Ph.D. in Computer Science <span class="sep">·</span> Advisor: Prof. Gabriel Parmer</span><span class="i">Aug 2023 – Jun 2028 (expected)</span></div>
+  <div class="gap5"></div>
+  <div class="row"><span class="b">Bahcesehir University</span><span>Istanbul, Turkey</span></div>
+  <div class="row"><span class="i">B.Sc. Electrical &amp; Electronics Engineering <span class="sep">·</span> B.Sc. Computer Engineering (double major)</span><span class="i">2015 – 2020</span></div>
+  <ul>
+    <li>GPA 3.60/4.00 (EEE, High Honor, ranked 3rd) <span class="sep">·</span> 3.59/4.00 (CE, 2017–2020) <span class="sep">·</span> Erasmus: Óbuda University (2018).</li>
+  </ul>
 
-    <section aria-labelledby="pubs">
-      <h2 id="pubs">Publications</h2>
-      <dl class="cv-list">
-        <dt>RTAS</dt>
-        <dd><b>CSRankings-indexed.</b> E. Kökten, G. Parmer, B. B. Brandenburg, “SPR: Shielded Processor Reservations with Bounded Management Overhead,” <i>IEEE Real-Time and Embedded Technology and Applications Symposium (RTAS)</i>, 2025. <a href="https://doi.org/10.1109/RTAS65571.2025.00008">doi:10.1109/RTAS65571.2025.00008</a></dd>
-        <dt>ECCE</dt>
-        <dd>E. Kökten, B. C. Çalışkan, S. Karamzadeh, E. G. Soyak, “Low-Power Agriculture IoT System with LoRa: Open Field Storage Observation,” <i>Electrical, Control and Communication Engineering</i>, 16(2):88–94, 2020. <a href="https://doi.org/10.2478/ecce-2020-0013">doi:10.2478/ecce-2020-0013</a></dd>
-        <dt>MTTW</dt>
-        <dd>E. Kökten, B. C. Çalışkan, S. Karamzadeh, E. G. Soyak, “Low-Powered Agriculture IoT Systems with LoRa,” <i>IEEE Microwave Theory and Techniques in Wireless Communications (MTTW)</i>, pp. 178–183, 2020. <a href="https://doi.org/10.1109/MTTW51045.2020.9244927">doi:10.1109/MTTW51045.2020.9244927</a></dd>
-      </dl>
-    </section>
+  <h2 class="sec">Research Projects</h2>
+  <div class="row project"><span class="b">Hypervisor Support for Efficient Isolation between Critical Computations and VMs</span><span class="i">2025 – present</span></div>
+  <p class="j">Sensitive computations, such as operations involving TLS private keys, need protection from potentially compromised software that uses them. Separating these computations from a VM introduces communication overhead that can make frequent interactions expensive. This project develops hypervisor support in Composite for running critical computations as isolated, preemptible, schedulable services outside the VM, with low-overhead invocation.</p>
+  <ul>
+    <li>Implemented the mechanism in C and x86-64 assembly across the Composite microkernel, its Intel VT-x hypervisor, and the Linux guest kernel.</li>
+    <li>Evaluated TLS key isolation with nginx, keeping private keys in an external service that the VM can invoke without directly accessing the keys.</li>
+    <li>Measured a 942-cycle guest-to-service round trip on an Intel Xeon Platinum 8160, approximately 1.4× the measured cost of a bare VM exit and entry, and below KVM’s in-kernel handling of the same call (1,709 cycles tuned, 4,202 stock).</li>
+  </ul>
+  <div class="gap2"></div>
+  <div class="row project"><span class="b">Shielded Processor Reservations: Predictable CPU Allocation under Adversarial Workloads</span><span class="i">RTAS 2025</span></div>
+  <p class="j">CPU reservations promise predictable access to processing time, but malicious tasks can undermine these guarantees by triggering excessive reservation bookkeeping, timer interrupts, and repeated preemption. SPR addresses both timely access to reserved CPU time and the ability to use that time for meaningful computation. Its design processes at most two reservations per scheduler invocation and supports non-preemptive execution regions to mitigate preemption storms. With Gabriel Parmer and Björn Brandenburg (MPI-SWS).</p>
+  <ul>
+    <li>Implemented SPR and baseline reservation policies in Composite and conducted the full experimental evaluation of scheduling overhead and temporal isolation under adversarial workloads.</li>
+    <li>Demonstrated that 2&nbsp;ms non-preemptive regions restored matrix-multiplication throughput under a timer-flood attack to 99.6% of the no-interference baseline.</li>
+  </ul>
 
-    <section aria-labelledby="exp">
-      <h2 id="exp">Experience</h2>
-      <div class="cv-entry">
-        <div class="cv-row"><span class="cv-org">The George Washington University</span><span class="r">Washington, DC</span></div>
-        <div class="cv-row"><span class="cv-role">Graduate Teaching Assistant – CSCI 4431/6431 Computer Networks (Prof. Timothy Wood)</span><span class="r">Fall 2026 – Present</span></div>
-      </div>
-      <div class="cv-entry">
-        <div class="cv-row"><span class="cv-org">Siemens Digital Industries Software</span><span class="r">Istanbul, Turkey</span></div>
-        <div class="cv-row"><span class="cv-role">Software Developer (R&amp;D) – Embedded Systems</span><span class="r">Feb 2021 – Jul 2023</span></div>
-        <ul>
-          <li>Developed production embedded firmware in C/C++ for industrial automation devices in the PROFINET protocol ecosystem.</li>
-          <li>Designed and optimized low-level components for reliability and performance; system-level integration and validation.</li>
-        </ul>
-        <div class="cv-row cv-sub"><span class="cv-role">Working Student – CI/CD &amp; Infrastructure</span><span class="r">Sep 2019 – Feb 2021</span></div>
-        <ul>
-          <li>Built CI/CD pipelines and release automation with Jenkins, Python, and Shell; automated integration-test workflows.</li>
-        </ul>
-        <div class="cv-row cv-sub"><span class="cv-role">Intern – Test Automation</span><span class="r">Aug 2019 – Sep 2019</span></div>
-        <ul>
-          <li>Wrote TCL/Expect test automation for integration pipelines in Linux-based embedded environments.</li>
-        </ul>
-      </div>
-      <div class="cv-entry">
-        <div class="cv-row"><span class="cv-org">Aselsan – Defense Technologies</span><span class="r">Ankara, Turkey</span></div>
-        <div class="cv-row"><span class="cv-role">Technical Intern – Embedded Systems &amp; FPGA</span><span class="r">Jul 2019 – Aug 2019</span></div>
-        <ul>
-          <li>Built test and measurement applications with FPGA/VHDL; RS-232 and GPIB interfaces in C# and LabVIEW.</li>
-        </ul>
-      </div>
-      <div class="cv-entry">
-        <div class="cv-row"><span class="cv-org">BAU Intel Future Technologies Lab</span><span class="r">Istanbul, Turkey</span></div>
-        <div class="cv-row"><span class="cv-role">Student Research Assistant · Advisor: Assoc. Prof. Alkan Soysal</span><span class="r">Feb 2017 – May 2019</span></div>
-        <ul>
-          <li>Built embedded hardware prototypes, including a robotic hand controlled by an Intel Edison.</li>
-        </ul>
-      </div>
-    </section>
+  <h2 class="sec">Publications</h2>
+  <dl class="tab pubs">
+    <dt>RTAS</dt>
+    <dd><b>CSRankings-indexed.</b> E.&nbsp;Kökten, G.&nbsp;Parmer, B.&nbsp;B.&nbsp;Brandenburg, “SPR: Shielded Processor Reservations with Bounded Management Overhead,” <i>IEEE Real-Time and Embedded Technology and Applications Symposium (RTAS)</i>, 2025. <a href="https://doi.org/10.1109/RTAS65571.2025.00008">doi:10.1109/RTAS65571.2025.00008</a></dd>
+    <dt>ECCE</dt>
+    <dd>E.&nbsp;Kökten, B.&nbsp;C.&nbsp;Çalışkan, S.&nbsp;Karamzadeh, E.&nbsp;G.&nbsp;Soyak, “Low-Power Agriculture IoT System with LoRa: Open Field Storage Observation,” <i>Electrical, Control and Communication Engineering</i>, 16(2):88–94, 2020. <a href="https://doi.org/10.2478/ecce-2020-0013">doi:10.2478/ecce-2020-0013</a></dd>
+    <dt>MTTW</dt>
+    <dd>E.&nbsp;Kökten, B.&nbsp;C.&nbsp;Çalışkan, S.&nbsp;Karamzadeh, E.&nbsp;G.&nbsp;Soyak, “Low-Powered Agriculture IoT Systems with LoRa,” <i>IEEE Microwave Theory and Techniques in Wireless Communications (MTTW)</i>, pp. 178–183, 2020. <a href="https://doi.org/10.1109/MTTW51045.2020.9244927">doi:10.1109/MTTW51045.2020.9244927</a></dd>
+  </dl>
 
-    <section aria-labelledby="skills">
-      <h2 id="skills">Skills &amp; Qualifications</h2>
-      <dl class="cv-list">
-        <dt>Systems</dt>
-        <dd>Linux kernel, KVM/QEMU, Intel VT-x/VMX, EPT, VT-d, Composite microkernel, real-time scheduling</dd>
-        <dt>Languages</dt>
-        <dd>C, C++, x86-64 assembly, Python, Shell/Bash, TCL/Expect, C#</dd>
-        <dt>Certificate</dt>
-        <dd>iSAQB® Certified Professional for Software Architecture – Foundation Level</dd>
-        <dt>Visa</dt>
-        <dd>F-1 visa, CPT/OPT eligible for internships</dd>
-      </dl>
-    </section>
+</article>
 
-  </article>
+<!-- Page 2 -->
+<article class="sheet">
 
-</main>
+  <h2 class="sec">Experience</h2>
+  <div class="row"><span class="b">The George Washington University</span><span>Washington,&nbsp;DC</span></div>
+  <div class="row"><span class="i">Graduate Teaching Assistant – CSCI 4431/6431 Computer Networks (Prof. Timothy Wood)</span><span class="i">Fall 2026 – Present</span></div>
+  <div class="gap5"></div>
+  <div class="row"><span class="b">Siemens Digital Industries Software</span><span>Istanbul, Turkey</span></div>
+  <div class="row"><span class="i">Software Developer (R&amp;D) – Embedded Systems</span><span class="i">Feb 2021 – Jul 2023</span></div>
+  <ul>
+    <li>Developed production embedded firmware in C/C++ for industrial automation devices in the PROFINET protocol ecosystem.</li>
+    <li>Designed and optimized low-level components for reliability and performance; system-level integration and validation.</li>
+  </ul>
+  <div class="row"><span class="i">Working Student – CI/CD &amp; Infrastructure</span><span class="i">Sep 2019 – Feb 2021</span></div>
+  <ul>
+    <li>Built CI/CD pipelines and release automation with Jenkins, Python, and Shell; automated integration-test workflows.</li>
+  </ul>
+  <div class="row"><span class="i">Intern – Test Automation</span><span class="i">Aug 2019 – Sep 2019</span></div>
+  <ul>
+    <li>Wrote TCL/Expect test automation for integration pipelines in Linux-based embedded environments.</li>
+  </ul>
+  <div class="row"><span class="b">Aselsan – Defense Technologies</span><span>Ankara, Turkey</span></div>
+  <div class="row"><span class="i">Technical Intern – Embedded Systems &amp; FPGA</span><span class="i">Jul 2019 – Aug 2019</span></div>
+  <ul>
+    <li>Built test and measurement applications with FPGA/VHDL; RS-232 and GPIB interfaces in C# and LabVIEW.</li>
+  </ul>
+  <div class="row"><span class="b">BAU Intel Future Technologies Lab</span><span>Istanbul, Turkey</span></div>
+  <div class="row"><span class="i">Student Research Assistant <span class="sep">·</span> Advisor: Assoc. Prof. Alkan Soysal</span><span class="i">Feb 2017 – May 2019</span></div>
+  <ul>
+    <li>Built embedded hardware prototypes, including a robotic hand controlled by an Intel Edison.</li>
+  </ul>
+
+  <h2 class="sec">Skills &amp; Qualifications</h2>
+  <dl class="tab skills">
+    <dt>Systems</dt>
+    <dd>Linux kernel, KVM/QEMU, Intel VT-x/VMX, EPT, VT-d, Composite microkernel, real-time scheduling</dd>
+    <dt>Languages</dt>
+    <dd>C, C++, x86-64 assembly, Python, Shell/Bash, TCL/Expect, C#</dd>
+    <dt>Certificate</dt>
+    <dd>iSAQB<sup>®</sup> Certified Professional for Software Architecture – Foundation Level</dd>
+    <dt>Visa</dt>
+    <dd>F-1 visa, CPT/OPT eligible for internships</dd>
+  </dl>
+
+</article>
+
 </body>
 </html>
