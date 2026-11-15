@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CV · Esma Kokten Caliskan</title>
+  <meta name="description" content="CV of Esma Kokten Caliskan, Ph.D. student in Computer Science at George Washington University.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+
+  <a class="home" href="index.html">← Home</a>
+
+  <article class="cv">
+
+    <header class="cv-head">
+      <h1 class="page-title">Esma Kokten Caliskan</h1>
+      <p class="cv-contact"><a href="mailto:esmakokten@gmail.com">esmakokten@gmail.com</a> · Washington, DC · <a href="https://www.linkedin.com/in/esmakokten">linkedin.com/in/esmakokten</a></p>
+      <p class="summary">I work on making isolation practical for software that must interact frequently and execute predictably. My research spans virtualization and real-time scheduling, with a focus on protecting critical computations, reducing isolation overhead, and maintaining predictable CPU access in the presence of untrusted software.</p>
+    </header>
+
+    <section aria-labelledby="edu">
+      <h2 id="edu">Education</h2>
+      <div class="cv-entry">
+        <div class="cv-row"><span class="cv-org">The George Washington University</span><span class="r">Washington, DC</span></div>
+        <div class="cv-row"><span class="cv-role">Ph.D. in Computer Science · Advisor: Prof. Gabriel Parmer</span><span class="r">Aug 2023 – Jun 2028 (expected)</span></div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-row"><span class="cv-org">Bahcesehir University</span><span class="r">Istanbul, Turkey</span></div>
+        <div class="cv-row"><span class="cv-role">B.Sc. Electrical &amp; Electronics Engineering · B.Sc. Computer Engineering (double major)</span><span class="r">2015 – 2020</span></div>
+        <ul>
+          <li>GPA 3.60/4.00 (EEE, High Honor, ranked 3rd) · 3.59/4.00 (CE, 2017–2020) · Erasmus: Óbuda University (2018).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="projects">
+      <h2 id="projects">Research Projects</h2>
+      <div class="cv-entry">
+        <div class="cv-row"><span class="cv-project">Hypervisor Support for Efficient Isolation between Critical Computations and VMs</span><span class="r">2025 – present</span></div>
+        <p>Sensitive computations, such as operations involving TLS private keys, need protection from potentially compromised software that uses them. Separating these computations from a VM introduces communication overhead that can make frequent interactions expensive. This project develops hypervisor support in Composite for running critical computations as isolated, preemptible, schedulable services outside the VM, with low-overhead invocation.</p>
+        <ul>
+          <li>Implemented the mechanism in C and x86-64 assembly across the Composite microkernel, its Intel VT-x hypervisor, and the Linux guest kernel.</li>
+          <li>Evaluated TLS key isolation with nginx, keeping private keys in an external service that the VM can invoke without directly accessing the keys.</li>
+          <li>Measured a 942-cycle guest-to-service round trip on an Intel Xeon Platinum 8160, approximately 1.4× the measured cost of a bare VM exit and entry, and below KVM’s in-kernel handling of the same call (1,709 cycles tuned, 4,202 stock).</li>
+        </ul>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-row"><span class="cv-project">Shielded Processor Reservations: Predictable CPU Allocation under Adversarial Workloads</span><span class="r">RTAS 2025</span></div>
+        <p>CPU reservations promise predictable access to processing time, but malicious tasks can undermine these guarantees by triggering excessive reservation bookkeeping, timer interrupts, and repeated preemption. SPR addresses both timely access to reserved CPU time and the ability to use that time for meaningful computation. Its design processes at most two reservations per scheduler invocation and supports non-preemptive execution regions to mitigate preemption storms. With Gabriel Parmer and Björn Brandenburg (MPI-SWS).</p>
+        <ul>
+          <li>Implemented SPR and baseline reservation policies in Composite and conducted the full experimental evaluation of scheduling overhead and temporal isolation under adversarial workloads.</li>
+          <li>Demonstrated that 2 ms non-preemptive regions restored matrix-multiplication throughput under a timer-flood attack to 99.6% of the no-interference baseline.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="pubs">
+      <h2 id="pubs">Publications</h2>
+      <dl class="cv-list">
+        <dt>RTAS</dt>
+        <dd><b>CSRankings-indexed.</b> E. Kökten, G. Parmer, B. B. Brandenburg, “SPR: Shielded Processor Reservations with Bounded Management Overhead,” <i>IEEE Real-Time and Embedded Technology and Applications Symposium (RTAS)</i>, 2025. <a href="https://doi.org/10.1109/RTAS65571.2025.00008">doi:10.1109/RTAS65571.2025.00008</a></dd>
+        <dt>ECCE</dt>
+        <dd>E. Kökten, B. C. Çalışkan, S. Karamzadeh, E. G. Soyak, “Low-Power Agriculture IoT System with LoRa: Open Field Storage Observation,” <i>Electrical, Control and Communication Engineering</i>, 16(2):88–94, 2020. <a href="https://doi.org/10.2478/ecce-2020-0013">doi:10.2478/ecce-2020-0013</a></dd>
+        <dt>MTTW</dt>
+        <dd>E. Kökten, B. C. Çalışkan, S. Karamzadeh, E. G. Soyak, “Low-Powered Agriculture IoT Systems with LoRa,” <i>IEEE Microwave Theory and Techniques in Wireless Communications (MTTW)</i>, pp. 178–183, 2020. <a href="https://doi.org/10.1109/MTTW51045.2020.9244927">doi:10.1109/MTTW51045.2020.9244927</a></dd>
+      </dl>
+    </section>
+
+    <section aria-labelledby="exp">
+      <h2 id="exp">Experience</h2>
+      <div class="cv-entry">
+        <div class="cv-row"><span class="cv-org">The George Washington University</span><span class="r">Washington, DC</span></div>
+        <div class="cv-row"><span class="cv-role">Graduate Teaching Assistant – CSCI 4431/6431 Computer Networks (Prof. Timothy Wood)</span><span class="r">Fall 2026 – Present</span></div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-row"><span class="cv-org">Siemens Digital Industries Software</span><span class="r">Istanbul, Turkey</span></div>
+        <div class="cv-row"><span class="cv-role">Software Developer (R&amp;D) – Embedded Systems</span><span class="r">Feb 2021 – Jul 2023</span></div>
+        <ul>
+          <li>Developed production embedded firmware in C/C++ for industrial automation devices in the PROFINET protocol ecosystem.</li>
+          <li>Designed and optimized low-level components for reliability and performance; system-level integration and validation.</li>
+        </ul>
+        <div class="cv-row cv-sub"><span class="cv-role">Working Student – CI/CD &amp; Infrastructure</span><span class="r">Sep 2019 – Feb 2021</span></div>
+        <ul>
+          <li>Built CI/CD pipelines and release automation with Jenkins, Python, and Shell; automated integration-test workflows.</li>
+        </ul>
+        <div class="cv-row cv-sub"><span class="cv-role">Intern – Test Automation</span><span class="r">Aug 2019 – Sep 2019</span></div>
+        <ul>
+          <li>Wrote TCL/Expect test automation for integration pipelines in Linux-based embedded environments.</li>
+        </ul>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-row"><span class="cv-org">Aselsan – Defense Technologies</span><span class="r">Ankara, Turkey</span></div>
+        <div class="cv-row"><span class="cv-role">Technical Intern – Embedded Systems &amp; FPGA</span><span class="r">Jul 2019 – Aug 2019</span></div>
+        <ul>
+          <li>Built test and measurement applications with FPGA/VHDL; RS-232 and GPIB interfaces in C# and LabVIEW.</li>
+        </ul>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-row"><span class="cv-org">BAU Intel Future Technologies Lab</span><span class="r">Istanbul, Turkey</span></div>
+        <div class="cv-row"><span class="cv-role">Student Research Assistant · Advisor: Assoc. Prof. Alkan Soysal</span><span class="r">Feb 2017 – May 2019</span></div>
+        <ul>
+          <li>Built embedded hardware prototypes, including a robotic hand controlled by an Intel Edison.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="skills">
+      <h2 id="skills">Skills &amp; Qualifications</h2>
+      <dl class="cv-list">
+        <dt>Systems</dt>
+        <dd>Linux kernel, KVM/QEMU, Intel VT-x/VMX, EPT, VT-d, Composite microkernel, real-time scheduling</dd>
+        <dt>Languages</dt>
+        <dd>C, C++, x86-64 assembly, Python, Shell/Bash, TCL/Expect, C#</dd>
+        <dt>Certificate</dt>
+        <dd>iSAQB® Certified Professional for Software Architecture – Foundation Level</dd>
+        <dt>Visa</dt>
+        <dd>F-1 visa, CPT/OPT eligible for internships</dd>
+      </dl>
+    </section>
+
+  </article>
+
+</main>
+</body>
+</html>
